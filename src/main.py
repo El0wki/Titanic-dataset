@@ -1,19 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import kagglehub
-from kagglehub import KaggleDatasetAdapter
+from src.dataset import *
 
-path = "Titanic-Dataset.csv"
-
-df = kagglehub.dataset_load(
-  KaggleDatasetAdapter.PANDAS,
-  "yasserh/titanic-dataset",
-  path
-)
-
-print("Quantidade de linhas e colunas: ", df.shape)
-print("Colunas: ", df.columns)
-
+df = extractDataSet()
+startingSample(df)
+cleanseData(df)
+filterData(df)
 #informacoes e tipos de dados
 df.info()
 
